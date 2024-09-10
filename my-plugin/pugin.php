@@ -18,4 +18,4 @@ function pc_create_custom_post_type()
         'show_in_rest' => true, // För Gutenberg-redigeraren
     ));
 }
-add_action('init', 'pc_create_custom_post_type');
+add_action('init', 'pc_create_custom_post_type', );
