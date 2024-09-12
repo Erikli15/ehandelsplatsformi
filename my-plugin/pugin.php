@@ -1,19 +1,19 @@
 <?php
 /**
- * Plugin Name: Collegtions 
+ * Plugin Name: Collections 
  */
 
 function pc_create_custom_post_type()
 {
-    register_post_type('Collegtions', array(
+    register_post_type('Collections', array(
         'labels' => array(
-            'name' => 'Collegtions',
-            'singular_name' => 'Collegtion',
-            'menu_name' => 'Collegtions',
+            'name' => 'Collections',
+            'singular_name' => 'Collection',
+            'menu_name' => 'Collections',
         ),
         'public' => true,
         'has_archive' => true,
-        'rewrite' => array('slug' => 'Collegtions'),
+        'rewrite' => array('slug' => 'Collections'),
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comments'),
         'show_in_rest' => true, // För Gutenberg-redigeraren
     ));
