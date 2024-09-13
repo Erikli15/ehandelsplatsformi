@@ -5,8 +5,8 @@ Template Name: Collections Page
 ?>
 
 <form method="post">
-    <input type="text" name="title" placeholder="Kollektion Title">
-    <textarea name="content" placeholder="Kollektion Description"></textarea>
+    <input type="text" name="title" placeholder="Kollektion titel">
+    <textarea name="content" placeholder="Kollektion beskrivning"></textarea>
 
     <?php
     if (class_exists('WooCommerce')) {
