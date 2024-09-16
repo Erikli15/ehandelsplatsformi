@@ -3,3 +3,7 @@ Theme Name:   my-theme
 Theme URI:    https://woocommerce.com/products/storefront/
 
 */
+
+body {
+    background-color: green;
+}

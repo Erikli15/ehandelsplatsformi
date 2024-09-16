@@ -2,6 +2,8 @@
 /*
 Template Name: Collections Page
 */
+
+get_header();
 ?>
 
 <form method="post">

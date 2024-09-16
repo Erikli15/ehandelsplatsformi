@@ -2,8 +2,10 @@
 /*
 Template Name:  recipes page
 */
-?>
 
+get_header()
+
+    ?>
 <form method="POST">
     <input type="text" name="creator_name" placeholder="Ditt namn" required>
 
@@ -113,5 +115,5 @@ $recipes = get_posts(array(
 
 
 foreach ($recipes as $recipe) {
-    echo ('<div>' . $recipe->post_title . $recipe->post_content . '</div>');
+    echo ('<div className="recipe_contaner">' . $recipe->post_title . $recipe->post_content . '</div>');
 }

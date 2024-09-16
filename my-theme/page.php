@@ -1,5 +1,6 @@
 <?php
-get_header(); ?>
+get_header();
+?>
 This is a page:
 <?php
 if (have_posts()):
