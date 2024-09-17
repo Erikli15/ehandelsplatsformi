@@ -6,12 +6,26 @@ Template Name:  recipes page
 get_header();
 
 ?>
+<?php
+// Hämta alla produkter från WooCommerce
+$products = wc_get_products(array(
+    'limit' => -1, // Hämta alla produkter
+));
+?>
+<!-- Skapa en datalist med WooCommerce-produkterna -->
+<datalist id="product-list">
+    <?php foreach ($products as $product): ?>
+        <option value="<?php echo esc_attr($product->get_name()); ?>">
+        <?php endforeach; ?>
+</datalist>
+
+
 <form method="POST">
     <input type="text" name="creator_name" placeholder="Ditt namn" required>
 
     <div id="ingredient-container">
         <div>
-            <input type="text" name="ingredient_name[]" placeholder="Ingrediens 1" required>
+            <input type="text" name="ingredient_name[]" list="product-list" placeholder="Ingrediens 1" required>
             <input type="number" name="ingredient_quantity[]" placeholder="Antal" min="1" required>
             <select name="ingredient_unit[]">
                 <option value="kg">kg</option>
@@ -38,7 +52,7 @@ get_header();
         addButton.addEventListener('click', () => {
             const newIngredientFields = `
         <div>
-            <input type="text" name="ingredient_name[]" placeholder="Ingrediens" required>
+            <input type="text" name="ingredient_name[]" list="product-list" placeholder="Ingrediens" required>
             <input type="number" name="ingredient_quantity[]" placeholder="Antal" min="1" required>
             <select name="ingredient_unit[]">
                 <option value="kg">kg</option>
