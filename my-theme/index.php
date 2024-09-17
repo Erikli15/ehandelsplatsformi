@@ -10,6 +10,7 @@ if (is_tax() || is_category()) {
 }
 ?>
 
+
 <?php
 if (have_posts()):
 

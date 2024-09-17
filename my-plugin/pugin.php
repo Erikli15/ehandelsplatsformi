@@ -13,6 +13,7 @@ function pc_create_custom_post_type()
         ),
         'public' => true,
         'has_archive' => true,
+        'taxonomies' => array('category'),
         'rewrite' => array('slug' => 'Collections'),
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comments'),
         'show_in_rest' => true, // För Gutenberg-redigeraren

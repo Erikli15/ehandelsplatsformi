@@ -3,9 +3,9 @@
 Template Name:  recipes page
 */
 
-get_header()
+get_header();
 
-    ?>
+?>
 <form method="POST">
     <input type="text" name="creator_name" placeholder="Ditt namn" required>
 
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $new_post = [
             'post_title' => wp_strip_all_tags("$creator_name's Recept"),
-            'post_content' => "Ingredienser: $ingredient_list \n\n Beskrivning: $recipe_description",
+            'post_content' => "Ingredienser: $ingredients_list\n\nBeskrivning: $recipe_description\n\nInstruktioner: $instructions_list",
             'post_status' => 'publish',
             'post_author' => get_current_user_id(),
             'post_type' => 'Recipes', // Update post type to 'recipe'
@@ -99,9 +99,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $recipe_meta = array(
             'creator_name' => $creator_name,
             'recipe_description' => $recipe_description,
-            'ingredient' => $ingredient_list
+            'ingredient_list' => $ingredient_list
         );
-
         // Set the recipe message meta key
         update_post_meta($post_id, 'recipe', $recipe_meta);
     }
@@ -113,7 +112,33 @@ $recipes = get_posts(array(
     'posts_per_page' => -1
 ));
 
-
-foreach ($recipes as $recipe) {
-    echo ('<div className="recipe_contaner">' . $recipe->post_title . $recipe->post_content . '</div>');
-}
+?>
+<section id="recipe-body">
+    <?php
+    foreach ($recipes as $recipe) {
+        $recipe_meta = get_post_meta($recipe->ID, 'recipe', true);
+        $ingredients = explode(", ", $recipe_meta['ingredient_list']);
+        $instructions = explode("\n", $recipe_meta['recipe_description']); // Assuming instructions are separated by newline characters
+    
+        ?>
+        <div id="recipe-card">
+            <h2 id="recipe-title"><?php echo $recipe->post_title; ?></h2>
+            <div id="ingredients">
+                <ul>
+                    <?php foreach ($ingredients as $ingredient) { ?>
+                        <li><?php echo $ingredient; ?></li>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div id="instructions">
+                <ol>
+                    <?php foreach ($instructions as $instruction) { ?>
+                        <li><?php echo $instruction; ?></li>
+                    <?php } ?>
+                </ol>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+</section>

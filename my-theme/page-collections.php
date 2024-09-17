@@ -62,15 +62,16 @@ $collections = get_posts(array(
 ));
 
 if (!empty($collections)) {
-    echo '<ul>'; // Start an unordered list
+    echo '<ul id="collection-list">'; // Lägg till en klass för att styla listan
     foreach ($collections as $collection) {
-        echo '<li>';
-        echo '<a href="' . get_permalink($collection->ID) . '">';
-        echo '<h2>' . $collection->post_title . '</h2>';
+        echo '<li id="collection-item">';
+        echo '<a href="' . get_permalink($collection->ID) . '" id="collection-link">';
+        echo '<h2 id="collection-title">' . $collection->post_title . '</h2>';
         echo '</a>';
         echo '</li>';
     }
     echo '</ul>';
+
 } else {
     echo 'No collections found.';
 }
