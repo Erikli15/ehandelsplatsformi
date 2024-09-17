@@ -3,6 +3,9 @@
 Template Name: Collections Page
 */
 
+?>
+
+<?php
 get_header();
 ?>
 
@@ -75,4 +78,6 @@ if (!empty($collections)) {
 } else {
     echo 'No collections found.';
 }
+
+wp_footer();
 ?>

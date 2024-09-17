@@ -1,15 +1,6 @@
 <?php
 get_header();
 ?>
-This is a page:
-
-<div id="menu">
-	<a href="<?php echo (home_url("/")) ?>">Hem</a>
-	<a href="<?php echo (home_url("/butik/")) ?>">Butik</a>
-	<a href="<?php echo (home_url("/collections/")) ?>">Kollektioner</a>
-	<a href="<?php echo (home_url("/recipes/")) ?>">Respt</a>
-</div>
-
 <?php
 if (have_posts()):
 
