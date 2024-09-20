@@ -5,27 +5,25 @@ Template Name:  recipes page
 
 get_header();
 
+$products = update_custom_field_for_all_products_callback();
 ?>
-<?php
-// Hämta alla produkter från WooCommerce
-$products = wc_get_products(array(
-    'limit' => -1, // Hämta alla produkter
-));
-?>
-<!-- Skapa en datalist med WooCommerce-produkterna -->
 <datalist id="product-list">
     <?php foreach ($products as $product): ?>
-        <option value="<?php echo esc_attr($product->get_name()); ?>">
-        <?php endforeach; ?>
+        <option value="<?php echo esc_attr($product->get_name()); ?>"><?php echo esc_html($product->get_name()); ?></option>
+    <?php endforeach;
+    ?>
 </datalist>
+
 
 
 <form method="POST">
     <input type="text" name="creator_name" placeholder="Ditt namn" required>
-
     <div id="ingredient-container">
         <div>
-            <input type="text" name="ingredient_name[]" list="product-list" placeholder="Ingrediens 1" required>
+            <input type="text" id="hidden-input" name="ingredient_name[]" list="product-list" placeholder="Ingrediens"
+                required>
+
+            <input type="text" name="ingredient_name[]" list="product-list" placeholder="Ingrediens" required>
             <input type="number" name="ingredient_quantity[]" placeholder="Antal" min="1" required>
             <select name="ingredient_unit[]">
                 <option value="kg">kg</option>
@@ -80,11 +78,11 @@ $products = wc_get_products(array(
             }
         });
     </script>
+
     <textarea name="recipe_description" placeholder="Beskrivning av receptet" required></textarea>
 
     <input type="submit" value="Spara" name="submit_recipe">
 </form>
-
 
 <?php
 
@@ -94,15 +92,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $creator_name = sanitize_text_field($_POST['creator_name']);
         $recipe_description = sanitize_textarea_field($_POST['recipe_description']);
 
+        $recipe_ingredient = sanitize_textarea_field($_POST['recipe_description']);
+
         $ingredients = array_map(function ($name, $quantity, $unit) {
             return $quantity . ' ' . $unit . ' ' . sanitize_text_field($name);
         }, $_POST['ingredient_name'], $_POST['ingredient_quantity'], $_POST['ingredient_unit']);
 
-        $ingredient_list = implode(", ", $ingredients);
+        $ingredients_list = implode(", ", $ingredients);
 
         $new_post = [
             'post_title' => wp_strip_all_tags("$creator_name's Recept"),
-            'post_content' => "Ingredienser: $ingredients_list\n\nBeskrivning: $recipe_description\n\nInstruktioner: $instructions_list",
+            'post_content' => "Ingredienser: $ingredients_list\n\nBeskrivning: $recipe_description\n\nInstruktioner: $ingredients_list",
             'post_status' => 'publish',
             'post_author' => get_current_user_id(),
             'post_type' => 'Recipes', // Update post type to 'recipe'
@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $recipe_meta = array(
             'creator_name' => $creator_name,
             'recipe_description' => $recipe_description,
-            'ingredient_list' => $ingredient_list
+            'ingredient_list' => $ingredients_list
         );
         // Set the recipe message meta key
         update_post_meta($post_id, 'recipe', $recipe_meta);

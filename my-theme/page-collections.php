@@ -4,21 +4,31 @@ Template Name: Collections Page
 */
 
 ?>
+<!-- Lägg till CSS för Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<!-- Lägg till jQuery (om du inte redan har det) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Lägg till JavaScript för Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <?php
 get_header();
 ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <form method="post">
     <input type="text" name="title" placeholder="Kollektion titel">
     <textarea name="content" placeholder="Kollektion beskrivning"></textarea>
-
+    <input type="text" id="product_search" placeholder="Sök produkt...">
     <?php
     if (class_exists('WooCommerce')) {
         // Get all published products
         $products = wc_get_products(array('limit' => -1)); // Fetch all products
         if (!empty($products)) {
-            echo '<select name="product_select[]" multiple>';
+            echo '<select id="product_select" name="product_select[]" multiple>';
             foreach ($products as $product) {
                 echo '<option value="' . $product->get_id() . '">' . $product->get_name() . '</option>';
             }
@@ -31,6 +41,24 @@ get_header();
 
     <input type="submit" value="Lägg till Kollektion">
 </form>
+
+<script>
+    // Lyssnar på inmatningen i sökfältet
+    document.getElementById('product_search').addEventListener('input', function () {
+        var searchValue = this.value.toLowerCase();  // Hämta värdet från sökfältet
+        var options = document.getElementById('product_select').options;  // Hämta alternativen i select
+
+        // Loopar genom alternativen och visar/döljer baserat på sökvärdet
+        for (var i = 0; i < options.length; i++) {
+            var optionText = options[i].text.toLowerCase();  // Texten i alternativet i små bokstäver
+            if (optionText.includes(searchValue)) {
+                options[i].style.display = '';  // Visa om texten matchar sökordet
+            } else {
+                options[i].style.display = 'none';  // Dölj annars
+            }
+        }
+    });
+</script>
 
 <?php
 // Handle form submission

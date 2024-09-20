@@ -6,6 +6,8 @@ Theme URI:    https://woocommerce.com/products/storefront/
 
 body {
     background-color: green;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -13,6 +15,7 @@ body {
 #menu {
     background-color: #333;
     overflow: hidden;
+    margin-bottom: 40px;
 }
 
 #menu a {
@@ -311,4 +314,8 @@ input[type="submit"]:hover {
 
 #add-to-cart-button:hover {
     background-color: #e65a50;
+}
+
+#hidden-input {
+    display: none;
 }

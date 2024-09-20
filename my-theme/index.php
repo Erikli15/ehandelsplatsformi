@@ -8,6 +8,7 @@ if (is_tax() || is_category()) {
 	// Output the term name
 	echo '<h1>' . esc_html($term->name) . '</h1>';
 }
+
 ?>
 
 
