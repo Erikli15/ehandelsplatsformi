@@ -4,16 +4,216 @@ Theme URI:    https://woocommerce.com/products/storefront/
 
 */
 
-body {
-    background-color: green;
+/* General Styling */
+html body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 
+h1,
+h2,
+h3 {
+    font-family: 'Roboto', sans-serif;
+}
 
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #ff6347;
+}
+
+/* Logo */
+.logo {
+
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 20px;
+    background-color: #f8f9fa;
+    color: #ff6347;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text {
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #ff6347;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e55330;
+}
+
+/* Featured Products Section */
+.featured-products {
+    background-color: #f1f1f1;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.featured-products h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ff6347;
+}
+
+.product-card {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+}
+
+.product-card p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product-card button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Recipe Tips Section */
+.recipe-tips {
+    background-color: #fafafa;
+    padding: 50px 20px;
+}
+
+.recipe-tips h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #ff6347;
+}
+
+#recipe-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+}
+
+#recipe-title {
+    font-size: 2rem;
+    color: #ff6347;
+    margin-bottom: 15px;
+}
+
+#ingredients ul,
+#instructions ol {
+    padding-left: 20px;
+}
+
+#ingredients li,
+#instructions li {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+/* Collections Section */
+.reviews {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.reviews h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ff6347;
+}
+
+.collection-items {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.collection-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.collection-item:hover {
+    transform: scale(1.05);
+}
+
+.collection-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ff6347;
+}
+
+.no-collections {
+    font-size: 1.2rem;
+    color: #666;
+}
 
 #menu {
-    background-color: #333;
+    background-color: hsl(0, 0%, 20%);
     overflow: hidden;
     margin-bottom: 40px;
 }
@@ -54,7 +254,7 @@ body {
 
 #recipe-title {
     font-size: 24px;
-    color: #000000;
+    color: #333333;
     margin: 0 0 20px;
     text-align: center;
 }
@@ -67,20 +267,20 @@ body {
 #ingredients h3,
 #instructions h3 {
     font-size: 18px;
-    color: #000000;
+    color: #333333;
     margin: 0 0 10px;
 }
 
 ul,
 ol {
-    color: #000000;
+    color: #333333;
     padding-left: 20px;
     margin: 0;
 }
 
 ul li,
 ol li {
-    color: #000000;
+    color: #333333;
     margin-bottom: 8px;
 }
 
@@ -91,12 +291,6 @@ form {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
 }
 
 input[type="text"],
@@ -176,60 +370,102 @@ input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-/* Styling för listan */
-#collection-list {
-    list-style: none;
-    /* Ta bort standard-liststil */
-    padding: 0;
-    /* Ta bort standard-paddning */
-    margin: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    /* Gör så att listobjekten radbryts om det behövs */
-    gap: 20px;
-    /* Avstånd mellan objekten */
-}
-
-/* Styling för listobjekten */
-#collection-item {
-    background-color: #f9f9f9;
-    /* Bakgrundsfärg för varje objekt */
-    border-radius: 8px;
-    /* Rundade hörn */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Liten skugga */
+/* Grundläggande stil för wrappern */
+#collection-results {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    /* Inre avstånd */
-    width: calc(33.333% - 20px);
-    /* Bredd på varje objekt (för tre kolumner) */
-    box-sizing: border-box;
-    transition: transform 0.3s ease;
-    /* Liten animation på hover */
 }
 
-/* Styling för länkar */
-#collection-link {
-    text-decoration: none;
-    /* Ingen understrykning */
-    color: inherit;
-    /* Ärva textfärg */
-    display: block;
-    height: 100%;
+/* Stil för dropdown-menyn */
+.styled-select {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
 }
 
-/* Styling för titlar */
-#collection-title {
-    font-size: 1.5em;
-    /* Storlek på titlar */
+.styled-select:focus {
+    border-color: #333;
+    outline: none;
+}
+
+/* Stil för listan av kollektioner */
+.styled-collection-list {
+    margin-top: 20px;
+}
+
+/* Grundläggande layout för listan */
+.collection-items {
+    list-style-type: none;
+    padding: 0;
     margin: 0;
-    /* Ingen extra marginal */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
 }
 
-/* Hover-effekt */
-#collection-item:hover {
-    transform: translateY(-5px);
-    /* Lyft upp objektet lite vid hover */
+/* Stil för varje kollektionsobjekt */
+.collection-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
+
+.collection-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Stil för kollektionslänk */
+.collection-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Stil för kollektionstitel */
+.collection-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Stil för meddelande om inga kollektioner */
+.no-collections {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Anpassning för mindre skärmar */
+@media screen and (max-width: 768px) {
+    .collection-items {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .collection-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 
 /* Style the collection wrapper */
 #collection-wrapper {
@@ -319,3 +555,319 @@ input[type="submit"]:hover {
 #hidden-input {
     display: none;
 }
+
+/* Logo-styling */
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #e9c46a;
+    color: #264653;
+}
+
+/* Hero-sektionen */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-text .btn {
+    background-color: #e76f51;
+    padding: 15px 30px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.hero-text .btn:hover {
+    background-color: #f4a261;
+}
+
+/* Utvalda produkter */
+.featured-products {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.featured-products h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #2a9d8f;
+}
+
+.product-card {
+    display: inline-block;
+    width: 300px;
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    border-bottom: 2px solid #f4a261;
+    padding-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.6rem;
+    margin: 15px 0;
+}
+
+.product-card p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.product-card button {
+    background-color: #264653;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: #2a9d8f;
+}
+
+/* Recipe Tips */
+.recipe-tips {
+    padding: 50px 20px;
+    background-color: #f4f4f9;
+    text-align: center;
+}
+
+.recipe-tips h2 {
+    font-size: 2rem;
+    color: #333333;
+    margin-bottom: 40px;
+}
+
+#recipe-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#recipe-title {
+    font-size: 1.8rem;
+    color: #264653;
+}
+
+#ingredients ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#instructions ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+/* Reviews (Kundernas röster) */
+.reviews {
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.reviews h2 {
+    font-size: 2rem;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.collection-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.collection-item {
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.collection-title {
+    font-size: 1.5rem;
+    color: #264653;
+}
+
+.collection-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.collection-link:hover .collection-title {
+    color: #2a9d8f;
+}
+
+.no-collections {
+    text-align: center;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+
+.woocommerce-result-count {
+    display: none;
+}
+
+
+footer {
+    background-color: #f8f8f8;
+    padding: 40px 20px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-container>div {
+    flex: 1 1 250px;
+    margin: 20px;
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-newsletter h3,
+.footer-social h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.footer-about p,
+.footer-newsletter p {
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #e67e22;
+}
+
+.footer-newsletter form {
+    display: flex;
+}
+
+.footer-newsletter input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    flex: 1;
+    border-radius: 5px 0 0 5px;
+}
+
+.footer-newsletter button {
+    padding: 10px 20px;
+    background-color: #e67e22;
+    border: none;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.footer-newsletter button:hover {
+    background-color: #d35400;
+}
+
+.footer-social a {
+    margin-right: 10px;
+}
+
+.footer-social a img {
+    width: 32px;
+    height: 32px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777;
+}
+
+.single-product .woocommerce-product-gallery__image {
+    width: 100px;
+    height: 100px;
+}
+
+.single-product .woocommerce-product-gallery__image img {
+    width: auto;
+    /* Gör att bilden sträcker sig över hela sin container */
+    max-width: 500px;
+    /* Maximal bredd för bilden */
+    height: auto;
+}
+
+.woocommerce ul.products li.product img {
+    border-radius: 10px;
+    /* Ger en rundad kant på produktbilder */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Skugga under bilde    */
+}
+
+.page-template-default {}
