@@ -20,8 +20,7 @@ $products = update_custom_field_for_all_products_callback();
     <input type="text" name="creator_name" placeholder="Ditt namn" required>
     <div id="ingredient-container">
         <div>
-            <input type="text" id="hidden-input" name="ingredient_name[]" list="product-list" placeholder="Ingrediens"
-                required>
+            <input type="text" id="hidden-input" name="ingredient_name[]" list="product-list" placeholder="Ingrediens">
 
             <input type="text" name="ingredient_name[]" list="product-list" placeholder="Ingrediens" required>
             <input type="number" name="ingredient_quantity[]" placeholder="Antal" min="1" required>
