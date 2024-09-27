@@ -30,7 +30,6 @@ if (have_posts()):
 		wp_reset_postdata();
 
 
-		the_title();
 		the_content();
 
 	endwhile;
