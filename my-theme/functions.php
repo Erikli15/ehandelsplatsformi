@@ -69,3 +69,4 @@ add_action('wp_ajax_filter_collections', 'filter_collections');
 add_action('wp_ajax_nopriv_filter_collections', 'filter_collections');
 
 
+
